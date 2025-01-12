@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Payment Workflow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- User Profile Section -->
+<section id="user-profile">
+    <h2>User Profile</h2>
+    <div>
+        <p>Username: <span id="username">John Doe</span></p>
+        <img id="profile-picture" src="default-profile.png" alt="Profile Picture" width="100">
+    </div>
+</section>
+
+
+<!-- Booking Details Section -->
+<section id="booking-details">
+    <h2>Booking Details</h2>
+    <div>
+        <p>Station Name: <span id="station-name">Station A</span></p>
+        <p>Slot Time: <span id="slot-time">10:00 AM - 12:00 PM</span></p>
+        <p>Pricing Details: <span id="pricing-details">$100</span></p>
+        <p>Total Cost Breakdown:</p>
+        <ul>
+            <li>Base Cost: $80</li>
+            <li>Taxes: $15</li>
+            <li>Discounts: -$5</li>
+        </ul>
+        <p>Total: $90</p>
+    </div>
+</section>
+
+<!-- Payment Form Section -->
+<section id="payment-form">
+    <h2>Payment Form</h2>
+    <form>
+        <fieldset>
+            <legend>User Details</legend>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com"><br>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1234567890"><br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name"><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Your Address"><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Payment Method</legend>
+            <label><input type="radio" name="payment-method" value="credit-debit"> Credit/Debit Card</label><br>
+            <label><input type="radio" name="payment-method" value="online"> Online Payment Gateway</label><br>
+            <label><input type="radio" name="payment-method" value="wallet"> Wallet</label><br>
+        </fieldset>
+
+        <!-- Card Details Section -->
+        <fieldset id="card-details">
+            <legend>Card Details</legend>
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456"><br>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123"><br>
+            <label for="expiration">Expiration Date:</label>
+            <input type="month" id="expiration" name="expiration"><br>
+            <label for="billing-address">Billing Address:</label>
+            <input type="text" id="billing-address" name="billing-address" placeholder="Billing Address"><br>
+        </fieldset>
+
+        <button type="submit">Submit Payment</button>
+    </form>
+</section>
+
+<!-- Payment Confirmation Section -->
+<section id="payment-confirmation">
+    <h2>Payment Confirmation</h2>
+    <div>
+        <p>Amount: <span id="payment-amount">$90</span></p>
+        <p>Selected Method: <span id="selected-method">Credit Card</span></p>
+        <p>Booking Details: <span id="payment-booking-details">Station A, 10:00 AM - 12:00 PM</span></p>
+        <button id="proceed-to-pay">Proceed to Pay</button>
+    </div>
+</section>
+
+<!-- Invoice Section -->
+<section id="invoice">
+    <h2>Invoice</h2>
+    <div>
+        <p>Booking/Service Details: Station A, 10:00 AM - 12:00 PM</p>
+        <p>Bill To: John Doe</p>
+        <p>Ship To: John Doe</p>
+        <p>Invoice Number: INV12345</p>
+        <p>Amount Paid: $90</p>
+        <p>Date: 2024-12-15</p>
+        <p>Transaction ID: TXN67890</p>
+        <button id="download-invoice">Download Invoice</button>
+    </div>
+</section>
+
+<!-- Send Money Section -->
+<section id="send-money">
+    <h2>Send Money</h2>
+    <form>
+        <label for="recipient-address">Recipient Address:</label>
+        <input type="text" id="recipient-address" name="recipient-address" placeholder="Recipient Address"><br>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" placeholder="Amount"><br>
+        <label for="retype-amount">Re-type Amount:</label>
+        <input type="number" id="retype-amount" name="retype-amount" placeholder="Re-type Amount"><br>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" placeholder="Optional Message"><br>
+        <button type="button" id="sign-private-key">Sign with Private Key</button>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<!-- Terms and Conditions Section -->
+<section id="terms-conditions">
+    <h2>Terms and Conditions</h2>
+    <p>Please read the terms and conditions carefully before proceeding with your transactions.</p>
+</section>
+
+</body>
+</html>

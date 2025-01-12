@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>User Management</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .table th {
+            background-color: #227c78;
+            color: white;
+        }
+
+        .table td {
+            text-align: center;
+        }
+
+        .button-container {
+            margin: 1rem 0;
+        }
+
+        .user-info-container {
+            margin-top: 20px;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        .search-container button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>User Management System</h1>
+    </header>
+
+    <div class="container">
+        <!-- Search Section -->
+        <div class="search-container">
+            <input type="text" id="search-bar" class="form-control" placeholder="Search Users by Name...">
+            <button id="search-button" class="btn btn-success">Search</button>
+        </div>
+
+        <!-- Button Section -->
+        <div class="button-container">
+            <button id="user-info-btn" class="btn btn-primary">User Information</button>
+        </div>
+
+        <!-- User Information Section -->
+        <div id="user-info" class="user-info-container">
+            <!-- User data will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // Fetch and display all users
+        function fetchUsers(searchQuery = '') {
+            const url = searchQuery ? `getUsers.php?search=${searchQuery}` : 'getUsers.php';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const users = data.users;
+
+                        // Build the table dynamically
+                        let tableHTML = `
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        `;
+
+                        // Loop through the users to populate the table
+                        users.forEach(user => {
+                            tableHTML += `
+                                <tr>
+                                    <td>${user.id}</td>
+                                    <td>${user.name}</td>
+                                    <td>${user.email}</td>
+                                    <td>${user.status}</td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm edit-btn" data-id="${user.id}" data-name="${user.name}" data-email="${user.email}" data-status="${user.status}">Edit</button>
+                                        <button class="btn btn-danger btn-sm delete-btn" data-id="${user.id}">Delete</button>
+                                    </td>
+                                </tr>
+                            `;
+                        });
+
+                        tableHTML += `</tbody></table>`;
+
+                        document.getElementById('user-info').innerHTML = tableHTML;
+
+                        // Add event listeners for edit and delete buttons
+                        addEditListeners();
+                        addDeleteListeners();
+                    } else {
+                        document.getElementById('user-info').innerHTML = `<p>No users found.</p>`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('user-info').innerHTML = `<p>Error fetching users: ${error.message}</p>`;
+                });
+        }
+
+        // Event listener for "User Information" button
+        document.getElementById('user-info-btn').addEventListener('click', function () {
+            fetchUsers();
+        });
+
+        // Event listener for the search button
+        document.getElementById('search-button').addEventListener('click', function () {
+            const searchQuery = document.getElementById('search-bar').value;
+            fetchUsers(searchQuery);
+        });
+
+        // Add event listeners to edit buttons
+        function addEditListeners() {
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const userId = this.getAttribute('data-id');
+                    const userName = this.getAttribute('data-name');
+                    const userEmail = this.getAttribute('data-email');
+                    const userStatus = this.getAttribute('data-status');
+
+                    const newName = prompt('Edit Name:', userName);
+                    const newEmail = prompt('Edit Email:', userEmail);
+                    const newStatus = prompt('Edit Status:', userStatus);
+
+                    if (newName && newEmail && newStatus) {
+                        // Call the backend to update the user
+                        fetch('updateUser.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id: userId, name: newName, email: newEmail, status: newStatus })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert('User updated successfully.');
+                                    fetchUsers();
+                                } else {
+                                    alert('Failed to update user.');
+                                }
+                            })
+                            .catch(error => {
+                                alert('Error updating user: ' + error.message);
+                            });
+                    }
+                });
+            });
+        }
+
+        // Add event listeners to delete buttons
+        function addDeleteListeners() {
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const userId = this.getAttribute('data-id');
+
+                    if (confirm('Are you sure you want to delete this user?')) {
+                        // Call the backend to delete the user
+                        fetch('deleteUser.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id: userId })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert('User deleted successfully.');
+                                    fetchUsers();
+                                } else {
+                                    alert('Failed to delete user.');
+                                }
+                            })
+                            .catch(error => {
+                                alert('Error deleting user: ' + error.message);
+                            });
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

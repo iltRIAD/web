@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" crossorigin="anonymous"></script>
+
+    <title>layout5</title>
+    <style>
+        .back {
+            background-color: #f7fafc;
+            width: 100%;
+        }
+
+        .hh {
+            background-color: #227c78;
+            color: white;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            width: 100%;
+        }
+
+        .navbarr {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .items-end {
+            align-items: end;
+        }
+
+        .shadow {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        .card {
+            color: #e41111;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .booknow-btn {
+            background-color: #0068dd;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+        }
+
+        .stationInfo {
+            background-color: #f7fafc;
+            padding: 1rem;
+            margin: 1rem;
+            width: 100%;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            flex: 1 1 50%;
+            padding: 1rem;
+        }
+
+        .bg-gray {
+            background-color: #f7fafc;
+        }
+
+    </style>
+</head>
+<body class="back">
+    <header class="hh">
+        <div class="navbarr">
+            <div>
+                <img src="https://placehold.co/100x40" alt="company logo" class="inline-block">
+            </div>
+            <div class="flex items-center" style="margin-right: 1rem;">
+                <span class="" style="margin-left: 1rem;">Company</span>
+                <span class="" style="margin-left: 1rem;">Products and Solutions</span>
+                <span class="" style="margin-left: 1rem;">Find a Station</span>
+            </div>
+        </div>
+            
+    </header>
+
+    <nav class="bg-white shadow py-2">
+        <div class="container">
+            <span class="text-gray" style="font-size: 12px;"> Home » EV Charging Stations » Dhanmondi </span>
+        </div>
+    </nav>
+    <div style="background-color: #f7fafc; padding: 1rem; width: 100%;">
+        <div class="container flex" style="margin-left:80px; justify-content: space-between;">
+            <div class="row">
+                <div class="col">
+                    <img src="https://ecdn.dhakatribune.net/contents/cache/images/800x450x1/uploads/dten/2022/07/14/2022-07-01t100929z-749715644-rc2o1v963jp7-rtrmadp-3-germany-e-mobility.jpeg" alt="station image" class="inline-block" style="border-radius: 15px; height: 300px; width: 600px;">
+                </div>
+                
+                <div class="col">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14608.036955462778!2d90.3655622322544!3d23.747049949819317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b33cffc3fb%3A0x4a826f475fd312af!2sDhanmondi%2C%20Dhaka%201205!5e0!3m2!1sen!2sbd!4v1735370094977!5m2!1sen!2sbd" 
+                        width="400" 
+                        height="300" 
+                        style="border: 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <div class="row" style="margin-left:10px;">
+                    <h1 class="flex" style= "padding: 1rem; margin-bottom: 0;">Shimanto 1
+                        <div style="margin: 1rem; font-size: large; margin-left:2rem">
+                            <a href="#" class="booknow-btn">Book Now</a>
+                        </div>
+                    </h1>
+                    <div class="stationInfo flex">
+                        <h6>
+                            <div class="flex items-center" style="font-size: large;">
+                                <i class="fas fa-map-marker-alt" style="display: block; color: #e41111; font-size: large;"></i>
+                                
+                                <span style="padding: 0.5rem;">40/A, Moneshwar road, Dhanmondi, Dhaka-1205</span>
+                                
+                            </div>
+                        </h6>
+                    </div>
+                    
+                </div>
+
+                <div class="row" style="margin-left: 25px;">
+                    <div class="flex" style="width: 100%; margin-bottom: 1rem;">
+                        <h4><i class="fas fa-bolt" style="margin-right: 8px;"></i>Charging Information</h4>
+                    </div>
+
+                    <div class="flex" style="gap: 3rem; width: 100%; margin-bottom: 1rem;">
+                        <div>
+                            <h6>Socket Information</h6>
+                            <div>
+                                18 Amp Socket
+                            </div>
+                        </div>
+                        <div>
+                            <h6>Vehicle Type</h6>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; margin-top: 12px;">
+                                <i class="fas fa-car" style="margin-right: 8px;"></i>
+                                <i class="fas fa-bicycle" style="margin-right: 8px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+
+        <!-- <div class="max-w-4xl mx-auto bg-gray p-4 rounded-lg shadow-lg relative">
+            <div class="flex items-center text-xl font-bold mb-4">
+                <i class="fas fa-battery-full text-pink-500 mr-2"></i>
+                <span class="text-gray-800">Nearest EV Charging Stations</span>
+            </div>
+            <div class="flex justify-between mb-4">
+                <button class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chevron-left text-gray-600"></i>
+                </button>
+                <button class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </button>
+            </div>
+            <div class="flex space-x-4">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs">
+                    <img src="https://placehold.co/300x200" alt="Charging station banner with icons and text" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-900">Kattangur SvachSakthi Kendra</h3>
+                        <p class="text-sm text-gray-700">Hyderabad, Telangana - 508205</p>
+                        <div class="flex justify-between items-center mt-4 text-purple-800">
+                            <div class="flex items-center">
+                                <i class="fas fa-charging-station mr-2"></i>
+                                <span>Charger Type</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2"></i>
+                                <span>Vehicle Type</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs">
+                    <img src="https://placehold.co/300x200" alt="EV charging station with equipment under trees" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-900">Kattangur SvachSakthi Kendra2</h3>
+                        <p class="text-sm text-gray-700">Hyderabad, Telangana - 508205</p>
+                        <div class="flex justify-between items-center mt-4 text-purple-800">
+                            <div class="flex items-center">
+                                <i class="fas fa-charging-station mr-2"></i>
+                                <span>Charger Type</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-car mr-2"></i>
+                                <span>Vehicle Type</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        
+
+        <!--//////////////-->
+        <div class="p-4 shadow-lg rounded-lg">
+            <div class="flex items-center text-xl font-bold mb-4">
+                <i class="fas fa-battery-full text-pink-500 mr-2"></i>
+                <span class="text-gray-800">Nearest EV Charging Stations</span>
+            </div>
+            <div class="flex justify-between mb-4">
+                <button class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chevron-left text-gray-600"></i>
+                </button>
+                <button class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </button>
+            </div>
+            <div class="flex space-x-4 overflow-x-auto">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs flex-shrink-0">
+                    <img src="https://placehold.co/300x200" alt="EV charging station with equipment under trees" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-900">Kattangur SvachSakthi Kendra</h3>
+                        <p class="text-sm text-gray-700">Hyderabad, Telangana - 508205</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs flex-shrink-0">
+                    <img src="https://placehold.co/300x200" alt="EV charging station with equipment under trees" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-900">Kattangur SvachSakthi Kendra2</h3>
+                        <p class="text-sm text-gray-700">Hyderabad, Telangana - 508205</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs flex-shrink-0">
+                    <img src="https://placehold.co/300x200" alt="EV charging station with equipment under trees" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-900">Kattangur SvachSakthi Kendra3</h3>
+                        <p class="text-sm text-gray-700">Hyderabad, Telangana - 508205</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div style="margin-top: 2rem;">
+        <div>
+            <h1 style="text-align: center; margin-top: 2rem;">Hello</h1>
+            <h1>Slot Booking</h1>
+            <form action="#" method="post">
+                <label for="slot">Pick an Available Slot for the Station:</label><br><br>
+                <select id="slot" name="slot">
+                    <option value="10-12">10:00 AM - 12:00 PM</option>
+                    <option value="12-2">12:00 PM - 2:00 PM</option>
+                    <option value="2-4">2:00 PM - 4:00 PM</option>
+                </select>
+                <button type="submit">Book Right Now</button>
+            </form>
+
+            <h2>Existing Reservation Details</h2>
+            <p><strong>Station:</strong> Station A</p>
+            <p><strong>Slot:</strong> 10:00 AM - 12:00 PM</p>
+            <p><strong>Status:</strong> Confirmed</p>
+            <button type="button">Cancel Booking</button>
+        </div>
+
+        
+    </div>
+    
+
+</body>
+</html>
+
